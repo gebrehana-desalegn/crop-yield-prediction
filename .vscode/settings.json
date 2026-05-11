@@ -1,0 +1,8 @@
+{
+    "python.defaultInterpreterPath": "C:\\Users\\HP-PC\\anaconda3\\envs\\crop_yield_env\\python.exe",
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.analysis.diagnosticSeverity": {
+        "reportMissingModuleSource": "none"
+    }
+}

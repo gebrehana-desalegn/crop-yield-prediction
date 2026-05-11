@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Yield Prediction System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🌾 AI Crop Yield Predictor</h1>
+        <form method="POST" action="/predict" enctype="multipart/form-data">
+            <label>Crop Type:</label>
+            <select name="crop_type" required>
+                <option>Rice</option><option>Wheat</option><option>Maize</option>
+            </select><br>
+
+            <label>Rainfall (mm):</label>
+            <input type="number" step="any" name="rainfall_mm" required><br>
+
+            <label>Avg Temperature (°C):</label>
+            <input type="number" step="any" name="avg_temp_c" required><br>
+
+            <label>Fertilizer (kg/ha):</label>
+            <input type="number" step="any" name="fertilizer_kg_ha" required><br>
+
+            <label>Pesticide (kg/ha):</label>
+            <input type="number" step="any" name="pesticide_kg_ha" required><br>
+
+            <label>Soil pH:</label>
+            <input type="number" step="any" name="soil_pH" required><br>
+
+            <label>Humidity (%):</label>
+            <input type="number" step="any" name="humidity_percent" required><br>
+
+            <label>Days to Harvest:</label>
+            <input type="number" name="days_to_harvest" required><br>
+
+            <label>Previous Yield (tons/ha):</label>
+            <input type="number" step="any" name="previous_yield" required><br>
+
+            <label>Plant Density (plants/m²) OR Upload Image:</label>
+            <input type="number" step="any" name="plant_density_index" placeholder="Optional">
+            <input type="file" name="image" accept="image/*"><br>
+
+            <button type="submit">Predict Yield</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            ✅ Predicted Yield: <strong>{{ prediction }} tons/hectare</strong>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="error">
+            ❌ Error: {{ error }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
